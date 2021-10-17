@@ -20,12 +20,12 @@ let score_audio = new Audio();
 fly.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 
-let gap = 90;
+let gap = 100;
 
 document.addEventListener("keydown", moveUp);
 
 function moveUp() {
-    yPos -= 25;
+    yPos -= 35;
     fly.play();
    }
 
@@ -54,7 +54,7 @@ function draw() {
         pipe[i].x--;
 
         
-        if(pipe[i].x == 125) {
+        if(pipe[i].x == 70) {
         pipe.push({
         x : cvs.width,
         y : Math.floor(Math.random() * pipeUp.height) - pipeUp.height
@@ -65,7 +65,7 @@ function draw() {
         && xPos <= pipe[i].x + pipeUp.width
         && (yPos <= pipe[i].y + pipeUp.height
         || yPos + bird.height >= pipe[i].y + pipeUp.height + gap) || yPos + bird.height >= cvs.height - fg.height) {
-            alert("GAME OVER!!"); 
+            alert("GAME OVER!!") ; 
      }
     
      if(pipe[i].x == 5) {
@@ -88,3 +88,5 @@ function draw() {
  }
 
  pipeBottom.onload = draw;
+
+ 
